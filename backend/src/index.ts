@@ -13,16 +13,16 @@ import { logger } from './utils/logger';
 import { ApiResponse } from './types';
 
 const app = express();
+app.set('trust proxy', 1);
 
 // Middleware
 app.use(pinoHttp({ logger }));
 app.use(cors(corsOptions));
 app.use(helmet());
 app.use(express.json());
-app.use(rateLimiter);
 
 // Routes
-app.use('/api/contact', contactRoutes);
+app.use('/api/contact', rateLimiter, contactRoutes);
 
 // 404
 app.use((req: Request, res: Response) => {
