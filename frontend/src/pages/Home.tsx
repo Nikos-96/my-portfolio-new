@@ -1,5 +1,6 @@
 import { Hero } from '../components/layout/Hero';
 import { Projects } from '../components/projects/Projects';
+import { GithubIcon } from './../assets/icons/GithubIcon';
 
 export const Home = () => {
 	return (
@@ -7,8 +8,8 @@ export const Home = () => {
 			<Hero />
 			<section className='wrapper'>
 				<h2>Selected Projects</h2>
-				<p style={{ margin: '1rem 0 5rem 0' }}>
-					A collection of my work and side projects. Open source projects have a GitHub icon next to the title linking to the repository.
+				<p className='page-description'>
+					A collection of my work and side projects. Open source projects have a <b>GitHub icon</b> <GithubIcon/> next to the title linking to the repository.
 				</p>
 				<Projects />
 			</section>
