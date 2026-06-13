@@ -18,8 +18,8 @@ export const getSkills = async (): Promise<Skill[]> => {
 	return [...ordered, ...unordered];
 };
 
-export const getServices = async (): Promise<Service[]> => {
-	const data = await strapi.get('/services?sort[0]=order:asc');
+export const getServices = async (locale: string): Promise<Service[]> => {
+	const data = await strapi.get(`/services?sort[0]=order:asc&locale=${locale}`);
 	if (!data?.data) throw new Error('Invalid API response: missing data');
 	return data.data.map(
 		(s: ApiResponse): Service => ({

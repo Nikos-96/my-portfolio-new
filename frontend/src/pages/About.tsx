@@ -1,8 +1,10 @@
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { useAbout } from '../hooks/useAbout';
+import { useTranslation } from 'react-i18next';
 
 export const About = () => {
+	const { t } = useTranslation();
 	const { skills, services, loading, error } = useAbout();
 
 	if (error) return <p>Failed to load: {error}</p>;
@@ -10,19 +12,16 @@ export const About = () => {
 	return (
 		<div className='wrapper about-page'>
 			<div className='about-header'>
-				<h1>About</h1>
+				<h1>{t('nav.about')}</h1>
 			</div>
 
 			<section className='about-section'>
-				<h2>Who I Am</h2>
-				<p>
-					I'm a full-stack web developer with over 5 years of experience, specializing in single-page applications. I work across the entire stack —
-					from building interfaces in React and TypeScript to designing APIs and managing databases on the backend.
-				</p>
+				<h2>{t('about.whoTitle')}</h2>
+				<p>{t('about.whoText')}</p>
 			</section>
 
 			<section className='about-section'>
-				<h2>What I Do</h2>
+				<h2>{t('about.whatTitle')}</h2>
 				<div className='services-grid'>
 					{loading ? (
 						<div className='service-card'>
@@ -41,7 +40,7 @@ export const About = () => {
 			</section>
 
 			<section className='about-section'>
-				<h2>Skills & Technologies</h2>
+				<h2>{t('about.skillsTitle')}</h2>
 				<ul className='skills-list'>
 					{loading ? (
 						<li>

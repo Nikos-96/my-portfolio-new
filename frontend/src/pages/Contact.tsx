@@ -1,37 +1,37 @@
+import { useTranslation } from 'react-i18next';
 import { useContactForm } from '../hooks/useContactForm';
 
 export const Contact = () => {
+	const { t } = useTranslation();
 	const { formData, loading, error, success, handleChange, handleSubmit } = useContactForm();
 
 	return (
 		<div className='wrapper contact-page'>
-			<h1>Contact</h1>
+			<h1>{t('nav.contact')}</h1>
 			<section>
-				<p>
-					You can contact me via email <a href='mailto:nikos7331@gmail.com'>Nikos7331@gmail.com</a> or the contact form.
-				</p>
+				<p>{t('contact.introStart')}<a href='mailto:...'>Nikos7331@gmail.com</a>{t('contact.introEnd')}</p>
 			</section>
 			<section>
-				<h2>Send a message</h2>
+				<h2>{t('contact.formTitle')}</h2>
 				{success ? (
-					<p className='success'>Message sent! Thank you.</p>
+					<p className='success'>{t('contact.success')}</p>
 				) : (
 					<form onSubmit={handleSubmit}>
 						<label>
-							<span>Name</span>
-							<input name='name' autoComplete='name' value={formData.name} onChange={handleChange} type='text' placeholder='Your name' required />
+							<span>{t('contact.nameLabel')}</span>
+							<input name='name' autoComplete='name' value={formData.name} onChange={handleChange} type='text' placeholder={t('contact.namePlaceholder')} required />
 						</label>
 						<label>
-							<span>Email</span>
-							<input name='email' autoComplete='email' value={formData.email} onChange={handleChange} type='email' placeholder='example@mail.com' required />
+							<span>{t('contact.emailLabel')}</span>
+							<input name='email' autoComplete='email' value={formData.email} onChange={handleChange} type='email' placeholder={t('contact.emailPlaceholder')} required />
 						</label>
 						<label>
-							<span>Message</span>
-							<textarea  name='message' value={formData.message} onChange={handleChange} placeholder='Your message' required />
+							<span>{t('contact.messageLabel')}</span>
+							<textarea  name='message' value={formData.message} onChange={handleChange} placeholder={t('contact.messagePlaceholder')} required />
 						</label>
 						{error && <p className='error'>{error}</p>}
 						<button type='submit' disabled={loading}>
-							{loading ? 'Sending...' : 'Send Message'}
+							{loading ? t('contact.sending') : t('contact.send')}
 						</button>
 					</form>
 				)}

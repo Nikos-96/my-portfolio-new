@@ -3,11 +3,18 @@ import type { ApiResponse, Project, Tag } from '../types';
 
 const STRAPI_URL = import.meta.env.VITE_STRAPI_URL;
 
-const QUERY = '/projects' + '?populate[0]=tags' + '&populate[1]=image' + '&populate[2]=category' + '&sort[0]=category.order:asc' + '&sort[1]=order:asc';
+const QUERY = (locale: string) =>
+	'/projects' +
+	'?populate[0]=tags' +
+	'&populate[1]=image' +
+	'&populate[2]=category' +
+	'&sort[0]=category.order:asc' +
+	'&sort[1]=order:asc' +
+	`&locale=${locale}`;
 
-export const getProjects = async (): Promise<Project[]> => {
+export const getProjects = async (locale: string): Promise<Project[]> => {
 	try {
-		const data = await strapi.get(QUERY);
+		const data = await strapi.get(QUERY(locale));
 
 		if (!data || !data.data) {
 			throw new Error('Invalid API response: missing data');
@@ -37,6 +44,7 @@ export const getProjects = async (): Promise<Project[]> => {
 				order: p.order ?? null,
 				isOpenSource: p.isOpenSource ?? false,
 				githubUrl: p.githubUrl ?? null,
+				featured: p.featured ?? false,
 			}),
 		);
 	} catch (err: unknown) {

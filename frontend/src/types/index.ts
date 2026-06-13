@@ -25,6 +25,7 @@ export interface Project {
 	order: number | null;
 	isOpenSource: boolean;
 	githubUrl: string | null;
+	featured: boolean;
 }
 
 export interface GroupedProjects {
@@ -44,7 +45,8 @@ export interface AppStore {
 	services: Service[];
 	loading: boolean;
 	error: string | null;
-	fetchAll: () => Promise<void>;
+	lastLocale: string | null;
+	fetchAll: (locale?: string) => Promise<void>;
 }
 
 export interface Skill {

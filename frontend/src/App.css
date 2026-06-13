@@ -104,16 +104,36 @@ header {
 	background-color: var(--bg);
 }
 
+header h2 {
+	font-size: inherit;
+}
+
+header a svg {
+	width: 1.3em;
+	height: 1.3em;
+}
+
 .header-top {
 	width: 100%;
 	border-bottom: 1px solid var(--border-strong);
-	padding: 1rem 0;
+	padding: 2.4rem 0;
+	transition: padding 0.3s ease;
+}
+
+header.scrolled .header-top {
+	padding: 0.8rem 0;
 }
 
 .header-content {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	font-size: 2rem;
+	transition: font-size 0.3s ease;
+}
+
+header.scrolled .header-content {
+	font-size: 1.7rem;
 }
 
 .navbar {
@@ -122,12 +142,56 @@ header {
 	align-items: center;
 }
 
+.lang-toggle {
+	background: none;
+	border: 1px solid var(--border-strong);
+	border-radius: 6px;
+	padding: 0.3rem 0.8rem;
+	color: var(--primary);
+	cursor: pointer;
+	font-weight: 500;
+	transition: opacity 0.2s;
+}
+
+.lang-toggle:hover {
+	opacity: 0.6;
+}
+
+.hamburger {
+	display: none;
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: var(--primary);
+	padding: 0.4rem;
+}
+
+.mobile-menu {
+	display: flex;
+	flex-direction: column;
+	padding: 1rem 0 1.5rem;
+	border-bottom: 1px solid var(--border-strong);
+	background: var(--bg);
+}
+
+.mobile-menu a {
+	padding: 1rem 2rem;
+	font-size: 1.8rem;
+}
+
+.mobile-menu-bottom {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+	padding: 1rem 2rem 0;
+}
+
 /* ============================================================
    HOME
    ============================================================ */
 .page-description {
 	font-size: 1.8rem;
-	margin: 1rem 0 5rem 0;	
+	margin: 1rem 0 5rem 0;
 }
 
 .page-description svg {
@@ -156,12 +220,16 @@ header {
    ============================================================ */
 .hero-wrapper {
 	margin-top: 10rem;
-	margin-bottom: 10rem;
+	margin-bottom: 4rem;
 }
 
 .hero-wrapper h1 {
 	text-align: start;
 	font-size: 6.4rem;
+}
+
+.hero-wrapper span {
+	font-size: 2.4rem;
 }
 
 /* ============================================================
@@ -279,6 +347,79 @@ header {
 
 .github-link:hover {
 	opacity: 1;
+}
+
+.spotlight {
+	background: var(--surface);
+	border-radius: 16px;
+	overflow: hidden;
+	margin-bottom: 6rem;
+}
+
+.spotlight-inner {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 3rem;
+}
+
+.spotlight-image {
+	aspect-ratio: 16 / 9;
+	overflow: hidden;
+	background: var(--surface-2);
+}
+
+.spotlight-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.spotlight-info {
+	padding: 2.4rem 2.4rem 2.4rem 0;
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+	justify-content: center;
+}
+
+.spotlight-label {
+	font-size: 1.2rem;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--secondary);
+	font-weight: 600;
+}
+
+.spotlight-title {
+	display: flex;
+	align-items: center;
+	gap: 0.8rem;
+}
+
+.spotlight-title h2 {
+	font-size: 2.4rem;
+	font-weight: 700;
+}
+
+.spotlight-dots {
+	display: flex;
+	gap: 0.6rem;
+	margin-top: 0.4rem;
+}
+
+.spotlight-dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 999px;
+	background: var(--primary);
+	border: none;
+	cursor: pointer;
+	transition: background 0.2s, width 0.2s;
+}
+
+.spotlight-dot.active {
+	background: var(--secondary);
+	width: 20px;
 }
 
 /* ============================================================
@@ -446,5 +587,23 @@ header {
 @media (max-width: 700px) {
 	.projects {
 		align-items: center;
+	}
+
+	.spotlight-inner {
+		grid-template-columns: 1fr;
+	}
+
+	.spotlight-info {
+		padding: 1.6rem;
+	}
+}
+
+@media (max-width: 600px) {
+	.navbar {
+		display: none;
+	}
+
+	.hamburger {
+		display: block;
 	}
 }

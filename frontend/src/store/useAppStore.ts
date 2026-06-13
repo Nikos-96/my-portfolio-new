@@ -10,15 +10,21 @@ export const useAppStore = create<AppStore>((set, get) => ({
 	services: [],
 	loading: false,
 	error: null,
-	fetchAll: async () => {
-		if (get().projects.length > 0) return;
+	lastLocale: null,
+	fetchAll: async (locale = 'en') => {
+		if (get().lastLocale === locale) return;
 		set({ loading: true, error: null });
 		try {
-			const [projects, skills, services] = await Promise.all([getProjects(), getSkills(), getServices()]);
+			const [projects, skills, services] = await Promise.all([
+				getProjects(locale),
+				getSkills(),
+				getServices(locale),
+			]);
 			set({
 				projects: groupProjectsByCategory(projects),
 				skills,
 				services,
+				lastLocale: locale,
 			});
 		} catch (err) {
 			set({ error: err instanceof Error ? err.message : 'Unknown error' });

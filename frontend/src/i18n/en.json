@@ -1,0 +1,40 @@
+{
+	"nav": {
+		"home": "Home",
+		"about": "About",
+		"contact": "Contact"
+	},
+	"hero": {
+		"title": "Full-Stack Web Developer",
+		"tagline1": "Building fast React & TypeScript apps.",
+		"tagline2": "Connecting frontends to Node.js backends.",
+		"tagline3": "Turning product ideas into real software."
+	},
+	"home": {
+		"allProjects": "All Projects",
+		"projectsDescStart": "A collection of my work and side projects. Open source projects have a ",
+		"projectsDescBold": "GitHub icon",
+		"projectsDescEnd": " next to the title linking to the repository.",
+		"featuredLabel": "Featured Project"
+	},
+	"about": {
+		"whoTitle": "Who I Am",
+		"whoText": "I'm a full-stack web developer with over 5 years of experience, specializing in single-page applications. I work across the entire stack — from building interfaces in React and TypeScript to designing APIs and managing databases on the backend.",
+		"whatTitle": "What I Do",
+		"skillsTitle": "Skills & Technologies"
+	},
+	"contact": {
+		"introStart": "You can contact me via email ",
+		"introEnd": " or the contact form.",
+		"formTitle": "Send a message",
+		"success": "Message sent! Thank you.",
+		"nameLabel": "Name",
+		"namePlaceholder": "Your name",
+		"emailLabel": "Email",
+		"emailPlaceholder": "name@example.com",
+		"messageLabel": "Message",
+		"messagePlaceholder": "Your message",
+		"sending": "Sending...",
+		"send": "Send Message"
+	}
+}

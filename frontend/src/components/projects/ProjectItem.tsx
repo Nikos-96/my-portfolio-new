@@ -1,12 +1,19 @@
 import { ExternalLinkIcon } from '../../assets/icons/ExternalLinkIcon';
+import { motion } from 'framer-motion';
 import { GithubIcon } from '../../assets/icons/GithubIcon';
 import type { Project } from '../../types';
 
 export const ProjectItem = ({ project }: { project: Project }) => (
-	<div className='project-item'>
-		<div className='image-wrapper'>
+	<motion.div
+		className='project-item'
+		initial={{ opacity: 0, y: 60 }}
+		whileInView={{ opacity: 1, y: 0 }}
+		viewport={{ once: true, margin: '0px 0px -80px 0px' }}
+		transition={{ duration: 0.5, ease: 'easeOut' }}
+	>
+		<a href={project.url} target='_blank' rel='noopener noreferrer' className='image-wrapper'>
 			<img src={project.image.url} alt={project.image.alt} />
-		</div>
+		</a>
 		<div className='project-info'>
 			<div className='project-title-row'>
 				<a href={project.url} target='_blank' rel='noopener noreferrer' className='project-title'>
@@ -26,5 +33,5 @@ export const ProjectItem = ({ project }: { project: Project }) => (
 				))}
 			</ul>
 		</div>
-	</div>
+	</motion.div>
 );

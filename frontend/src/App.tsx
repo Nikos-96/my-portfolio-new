@@ -5,12 +5,13 @@ import { Contact } from './pages/Contact';
 import { MainLayout } from './layouts/MainLayout';
 import { useAppStore } from './store/useAppStore';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 function App() {
-
+	const { i18n } = useTranslation();
 	useEffect(() => {
-		useAppStore.getState().fetchAll();
-	}, []);
+		useAppStore.getState().fetchAll(i18n.language);
+	}, [i18n.language]);
 
 	return (
 		<BrowserRouter>

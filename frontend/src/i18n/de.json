@@ -1,0 +1,40 @@
+{
+	"nav": {
+		"home": "Start",
+		"about": "Über mich",
+		"contact": "Kontakt"
+	},
+	"hero": {
+		"title": "Full-Stack-Webentwickler",
+		"tagline1": "Schnelle React & TypeScript Apps entwickeln.",
+		"tagline2": "Frontends mit Node.js-Backends verbinden.",
+		"tagline3": "Produktideen in echte Software umsetzen."
+	},
+	"home": {
+		"allProjects": "Alle Projekte",
+		"projectsDescStart": "Eine Auswahl meiner Arbeiten und Nebenprojekte. Open-Source-Projekte haben ein ",
+		"projectsDescBold": "GitHub-Icon",
+		"projectsDescEnd": " neben dem Titel, das zum Repository verlinkt.",
+		"featuredLabel": "Ausgewähltes Projekt"
+	},
+	"about": {
+		"whoTitle": "Wer ich bin",
+		"whoText": "Ich bin Full-Stack-Webentwickler mit über 5 Jahren Erfahrung und spezialisiert auf Single-Page-Applications. Ich arbeite am gesamten Stack – von der Entwicklung von Benutzeroberflächen mit React und TypeScript bis hin zum Design von APIs und der Verwaltung von Datenbanken im Backend.",
+		"whatTitle": "Was ich mache",
+		"skillsTitle": "Fähigkeiten & Technologien"
+	},
+	"contact": {
+		"introStart": "Du kannst mich per E-Mail ",
+		"introEnd": " oder über das Kontaktformular erreichen.",
+		"formTitle": "Nachricht senden",
+		"success": "Nachricht gesendet! Vielen Dank.",
+		"nameLabel": "Name",
+		"namePlaceholder": "Dein Name",
+		"emailLabel": "E-Mail",
+		"emailPlaceholder": "name@example.com",
+		"messageLabel": "Nachricht",
+		"messagePlaceholder": "Deine Nachricht",
+		"sending": "Wird gesendet...",
+		"send": "Absenden"
+	}
+}

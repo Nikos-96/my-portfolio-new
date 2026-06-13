@@ -1,8 +1,18 @@
+import { TypeAnimation } from 'react-type-animation';
+import { useTranslation } from 'react-i18next';
+
 export const Hero = () => {
-  return (
-    <section className='wrapper hero-wrapper'>
-      <h1>Full-Stack Web Developer</h1>
-      <p>Specializing in single-page applications with React, TypeScript and Node.js.</p>
-    </section>
-  );
+	const { t } = useTranslation();
+
+	return (
+		<section className='wrapper hero-wrapper'>
+			<h1>{t('hero.title')}</h1>
+			<TypeAnimation
+				sequence={[t('hero.tagline1'), 2200, t('hero.tagline2'), 2200, t('hero.tagline3'), 2200]}
+				repeat={Infinity}
+				speed={60}
+				key={t('hero.tagline1')}
+			/>
+		</section>
+	);
 };
