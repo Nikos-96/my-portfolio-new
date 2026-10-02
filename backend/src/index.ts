@@ -34,7 +34,7 @@ app.use(errorHandler);
 
 // Start server
 if (env.NODE_ENV !== 'test') {
-	const server = app.listen(env.PORT, () => {
+	const server = app.listen(env.PORT, '127.0.0.1', () => {
 		logger.info(`Server running on port ${env.PORT}`);
 		process.send?.('ready');
 	});
