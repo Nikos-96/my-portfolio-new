@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { backend } from '../api/backend';
 import type { FormData } from '../types';
+import { useRecaptcha } from './useRecaptcha';
 
 const INITIAL_STATE: FormData = { name: '', email: '', message: '' };
 
 export const useContactForm = () => {
+	const executeRecaptcha = useRecaptcha();
 	const [formData, setFormData] = useState<FormData>(INITIAL_STATE);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState<string | null>(null);
@@ -20,7 +22,8 @@ export const useContactForm = () => {
 		setError(null);
 
 		try {
-			await backend.post('/contact', formData);
+			const recaptchaToken = await executeRecaptcha('contact');
+			await backend.post('/contact', { ...formData, recaptchaToken });
 			setSuccess(true);
 			setFormData(INITIAL_STATE);
 		} catch (err) {
